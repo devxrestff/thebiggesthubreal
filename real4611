@@ -1,1 +1,151 @@
+   -- DiscordLib'i yükle
+local DiscordLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord"))()
 
+-- Yeni bir DiscordLib penceresi oluştur
+local win = DiscordLib:Window("The Biggest Custom (Movesets Hub Added New Customs❗)")
+
+-- Fonksiyon: Butonları ve script URL'lerini ekleyen tab oluşturma
+local function createButtonPage(tabName, buttonNames, scriptFunctions)
+    local tab = win:Server(tabName, "") -- Tab oluştur
+    local btnChannel = tab:Channel("Buttons")
+
+    for i, buttonName in ipairs(buttonNames) do
+        btnChannel:Button(buttonName, function()
+            local scriptFunction = scriptFunctions[i] or function() end -- Script fonksiyonunu seç
+            -- İlgili scripti çalıştır
+            local success, result = pcall(scriptFunction)
+            if not success then
+                print("Failed to execute script:", result)
+            end
+        end)
+    end
+end
+
+-- Garou ve Saitama tabları için butonları ve script fonksiyonlarını oluştur
+local garouButtons = {
+    "KJ X GAROU (Need Fix For PC ❌)",
+    "Garou to Suiryu (Working PC Mobile✅)",
+    "Garou To Jotaro (Need Fix For PC ❌)",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone",
+    "NotDone"
+}
+local garouScripts = {
+    function() loadstring(game:HttpGet("https://raw.githubusercontent.com/h8h88/hubfr/main/hubfr"))() end,
+    function() loadstring(game:HttpGet('https://raw.githubusercontent.com/xVicity/BURNED/main/LATEST.lua'))() end,
+    function() loadstring(game:HttpGet("https://raw.githubusercontent.com/h8h88/hubfr/main/hubfr"))() end,
+    function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Doumaix/qqwrxxxx/main/no"))() end,
+    function() print("Garou Script 5 running") end,
+    function() print("Garou Script 6 running") end,
+    function() print("Garou Script 7 running") end,
+    function() print("Garou Script 8 running") end,
+    function() print("Garou Script 9 running") end,
+    function() print("Garou Script 10 running") end
+}
+
+local saitamaButtons = {
+    "Saitama To Dio (Works Pc Mobile ✅)",
+    "Saitama To No Escape (Works Pc Mobile ✅) ",
+    "Saitama To Garou (Works Pc Mobile ✅)",
+    "",
+    "Run Saitama Script 5",
+    "Run Saitama Script 6",
+    "Run Saitama Script 7",
+    "Run Saitama Script 8",
+    "Run Saitama Script 9",
+    "Run Saitama Script 10"
+}
+local saitamaScripts = {
+    function() print("Saitama Script 1 running") end,
+    function() print("Saitama Script 2 running") end,
+    function() print("Saitama Script 3 running") end,
+    function() print("Saitama Script 4 running") end,
+    function() print("Saitama Script 5 running") end,
+    function() print("Saitama Script 6 running") end,
+    function() print("Saitama Script 7 running") end,
+    function() print("Saitama Script 8 running") end,
+    function() print("Saitama Script 9 running") end,
+    function() print("Saitama Script 10 running") end
+}
+
+-- Tabları oluştur ve butonları ekle
+createButtonPage("Garou Customs", garouButtons, garouScripts)
+createButtonPage("Saitama Customs", saitamaButtons, saitamaScripts)
+
+-- Diğer tabları oluştur
+local function createEmptyTab(tabName)
+    local tab = win:Server(tabName, "")
+    local btnChannel = tab:Channel("Buttons")
+    btnChannel:Button("NotDone", function()
+        print(tabName .. " - This tab is not done yet.")
+    end)
+end
+
+createEmptyTab("Cyborg Customs")
+createEmptyTab("Metal Bat Customs")
+createEmptyTab("Sonic Customs")
+createEmptyTab("Atomic Customs")
+createEmptyTab("Tatsumaki Customs")
+
+-- Fix (Works✅) isminde yeni bir sunucu oluştur
+local fixServ = win:Server("Fix (Works✅)", "✅")
+
+-- Fix (Works✅) sunucusu içinde Garou Fix ve Saitama Fix kanallarını oluştur
+local function createFixChannel(channelName, buttonNames, scriptFunctions)
+    local channel = fixServ:Channel(channelName) -- Kanal oluştur
+    for i, buttonName in ipairs(buttonNames) do
+        channel:Button(buttonName, function()
+            local scriptFunction = scriptFunctions[i] or function() end -- Script fonksiyonunu seç
+            -- İlgili scripti çalıştır
+            local success, result = pcall(scriptFunction)
+            if not success then
+                print("Failed to execute script:", result)
+            end
+        end)
+    end
+end
+
+-- Garou Fix ve Saitama Fix için butonları ve script fonksiyonlarını oluştur
+local garouFixButtons = {
+    "Garou Fix Script 1",
+    "Garou Fix Script 2",
+    "Garou Fix Script 3",
+    "Garou Fix Script 4",
+    "Garou Fix Script 5"
+}
+
+local garouFixScripts = {
+    function() loadstring(game:HttpGet("https://raw.githubusercontent.com/h8h88/hubfr/main/hubfr"))() end,
+    function() loadstring(game:HttpGet('https://raw.githubusercontent.com/xVicity/BURNED/main/LATEST.lua'))() end,
+    function() print("Garou Fix Script 3 running") end,
+    function() print("Garou Fix Script 4 running") end,
+    function() print("Garou Fix Script 5 running") end
+}
+
+local saitamaFixButtons = {
+    "Saitama Fix Script 1",
+    "Saitama Fix Script 2",
+    "Saitama Fix Script 3",
+    "Saitama Fix Script 4",
+    "Saitama Fix Script 5"
+}
+
+local saitamaFixScripts = {
+    function() print("Saitama Fix Script 1 running") end,
+    function() print("Saitama Fix Script 2 running") end,
+    function() print("Saitama Fix Script 3 running") end,
+    function() print("Saitama Fix Script 4 running") end,
+    function() print("Saitama Fix Script 5 running") end
+}
+
+-- Garou Fix ve Saitama Fix kanallarını oluştur ve butonları ekle
+createFixChannel("Garou Fix", garouFixButtons, garouFixScripts)
+createFixChannel("Saitama Fix", saitamaFixButtons, saitamaFixScripts)
